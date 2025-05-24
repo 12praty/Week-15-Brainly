@@ -17,7 +17,7 @@ export const connectDB = async () => {
 const UserSchema = new Schema({
   name: { type: String, unique: true },
   password: String,
-  email:String
+  
 });
 const ContentSchema=new Schema({
   type:String, 
