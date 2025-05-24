@@ -20,7 +20,7 @@ export function Sidebar({ onFilterChange, activeFilter = "all" }: SidebarProps) 
   };
 
   return (
-    <div className="h-screen bg-white border-r w-72 fixed left-0 top-0 pl-6 pt-4">
+    <div className="hidden lg:block h-screen bg-white border-r w-72 fixed left-0 top-0 pl-6 pt-4">
       <h1 className="flex text-2xl pt-2 items-center">
         <div className="pr-2">
           <Logo />
