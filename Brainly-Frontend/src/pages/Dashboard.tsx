@@ -47,7 +47,7 @@ export function Dashboard() {
       {/* Mobile Filter Bar */}
       <div className="lg:hidden bg-white border-b p-4">
         <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-3">
-          Filter Content
+          Filter Conten
         </h3>
         <div className="flex gap-2 overflow-x-auto">
           <button 
