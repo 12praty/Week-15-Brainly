@@ -5,7 +5,6 @@ import { Card } from "../components/ui/Card";
 import { PlusIcon } from "../icons/PlusIcon";
 import { useState, useMemo } from "react";
 import { Sidebar } from "../components/ui/Sidebar";
-import { Navbar } from "../components/ui/Navbar";
 import { useContent } from "../hooks/useContent";
 import { useNavigate } from "react-router-dom";
 

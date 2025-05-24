@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
 import { CrossIcon } from "../../icons/CrossIcon";
-import { Button } from "./button";
-import { Input } from "./Input";
 import axios from "axios";
 import { BACKEND_URL } from "../../config";
 
-enum ContentType {
-  Youtube = "youtube",
-  Twitter = "twitter",
-}
+const ContentType = {
+  Youtube: "youtube",
+  Twitter: "twitter",
+} as const;
+
+type ContentTypeValue = typeof ContentType[keyof typeof ContentType];
 
 interface CreateContentModalProps {
   open: boolean;
@@ -19,7 +19,7 @@ interface CreateContentModalProps {
 export function CreateContentModal({ open, onClose, onSuccess }: CreateContentModalProps) {
   const titleRef = useRef<HTMLInputElement>(null);
   const linkRef = useRef<HTMLInputElement>(null);
-  const [type, setType] = useState(ContentType.Youtube);
+  const [type, setType] = useState<ContentTypeValue>(ContentType.Youtube);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
