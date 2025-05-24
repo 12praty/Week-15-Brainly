@@ -25,6 +25,19 @@ if (!jwt_secret || typeof jwt_secret !== "string") {
     throw new Error("JWT secret not exists");
 }
 
+// Health check endpoint
+app.get("/", (req, res) => {
+    res.json({ message: "Brainly API is running!" });
+});
+
+app.get("/health", (req, res) => {
+    res.json({ 
+        status: "healthy", 
+        timestamp: new Date().toISOString(),
+        env: process.env.NODE_ENV || "development"
+    });
+});
+
 app.post("/api/v1/signup", async (req, res) => {
     try {
         const { name, password } = req.body;
