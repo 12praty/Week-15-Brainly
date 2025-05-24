@@ -36,6 +36,7 @@ export function CreateContentModal({ open, onClose, onSuccess }: CreateContentMo
       setLoading(true);
       setError(null);
       
+      const token = localStorage.getItem("token");
       await axios.post(
         `${BACKEND_URL}/api/v1/content`,
         {
@@ -45,7 +46,7 @@ export function CreateContentModal({ open, onClose, onSuccess }: CreateContentMo
         },
         {
           headers: {
-            Authorization: localStorage.getItem("token"),
+            Authorization: `Bearer ${token}`,
           },
         }
       );

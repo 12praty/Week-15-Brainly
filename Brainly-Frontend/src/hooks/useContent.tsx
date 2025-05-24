@@ -9,9 +9,10 @@ export function useContent() {
   const fetchContent = useCallback(async () => {
     try {
       setLoading(true);
+      const token = localStorage.getItem("token");
       const response = await axios.get(`${BACKEND_URL}/api/v1/content`, {
         headers: {
-          Authorization: localStorage.getItem("token"),
+          Authorization: `Bearer ${token}`,
         },
       });
       setContent(response.data.content);
@@ -24,9 +25,10 @@ export function useContent() {
 
   const deleteContent = useCallback(async (contentId: string | number) => {
     try {
+      const token = localStorage.getItem("token");
       await axios.delete(`${BACKEND_URL}/api/v1/content/${contentId}`, {
         headers: {
-          Authorization: localStorage.getItem("token"),
+          Authorization: `Bearer ${token}`,
         },
       });
       

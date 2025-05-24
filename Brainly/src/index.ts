@@ -11,7 +11,20 @@ import cors from "cors";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
+// Enhanced CORS configuration
+app.use(cors({
+  origin: [
+    'http://localhost:5173', // Vite dev server
+    'http://localhost:3000', // Alternative dev server
+    'https://week-15-brainly-9eez.vercel.app', // Your frontend URL
+    'https://*.vercel.app' // Allow all Vercel apps
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 connectDB();
 
 declare module "express-serve-static-core" {

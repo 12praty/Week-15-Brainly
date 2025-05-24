@@ -14,14 +14,28 @@ export function Signup() {
   async function signup() {
     const username = usernameRef.current?.value;
     const password = passwordRef.current?.value;
+
+    // Input validation
+    if (!username || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+
     try {
+      console.log("Attempting signup with:", { username, backendUrl: BACKEND_URL });
       await axios.post(BACKEND_URL + "/api/v1/signup", {
-        name:username,
+        name: username,
         password
       });
+      alert("Account created successfully!");
       navigate("/signin");
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      console.error("Signup error:", err);
+      console.error("Error response:", err.response?.data);
+      console.error("Error status:", err.response?.status);
+      
+      const errorMessage = err.response?.data?.message || "Signup failed";
+      alert(errorMessage);
     }
   }
 

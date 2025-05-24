@@ -14,7 +14,15 @@ export function Signin() {
   async function signin() {
     const name = usernameRef.current?.value;
     const password = passwordRef.current?.value;
+
+    // Input validation
+    if (!name || !password) {
+      alert("Please fill in all fields");
+      return;
+    }
+
     try {
+      console.log("Attempting signin with:", { name, backendUrl: BACKEND_URL });
       const response = await axios.post(BACKEND_URL + "/api/v1/signin", {
         name,
         password
@@ -22,8 +30,13 @@ export function Signin() {
       const jwt = response.data.token;
       localStorage.setItem("token", jwt);
       navigate("/dashboard");
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      console.error("Signin error:", err);
+      console.error("Error response:", err.response?.data);
+      console.error("Error status:", err.response?.status);
+      
+      const errorMessage = err.response?.data?.message || "Login failed";
+      alert(errorMessage);
     }
   }
 
