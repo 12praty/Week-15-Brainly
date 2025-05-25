@@ -46,30 +46,36 @@ export function Signup() {
       <div className="flex justify-center items-center min-h-[calc(100vh-80px)] px-4">
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 w-full max-w-md p-8">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Create your account</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Create your account</h1>
             <p className="text-gray-600">Get started with your second brain today</p>
           </div>
           
-          <div className="space-y-4">
-            <Input ref={usernameRef} placeholder="Username" />
-            <Input ref={passwordRef} placeholder="Password" type="password" />
+          <div className="space-y-5">
+            <div>
+              <Input ref={usernameRef} placeholder="Username" />
+            </div>
+            <div>
+              <Input ref={passwordRef} placeholder="Password" type="password" />
+            </div>
             
-            <Button 
-              onClick={signup} 
-              loading={false} 
-              size="sm" 
-              variant="primary" 
-              text="Sign Up" 
-              fullwidth={true} 
-            />
+            <div className="pt-2">
+              <Button 
+                onClick={signup} 
+                loading={false} 
+                size="md" 
+                variant="primary" 
+                text="Sign Up" 
+                fullwidth={true} 
+              />
+            </div>
           </div>
           
-          <div className="text-center mt-6">
+          <div className="text-center mt-8">
             <p className="text-gray-600">
               Already have an account?{" "}
               <button 
                 onClick={() => navigate("/signin")}
-                className="text-purple-600 hover:text-purple-700 font-medium"
+                className="text-purple-600 hover:text-purple-700 font-medium transition-colors duration-200"
               >
                 Sign in
               </button>

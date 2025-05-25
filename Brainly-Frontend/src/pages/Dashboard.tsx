@@ -63,7 +63,7 @@ export function Dashboard() {
           <button 
             className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap ${
               contentFilter === "youtube" 
-                ? "bg-red-100 text-red-100" 
+                ? "bg-red-100 text-red-700" 
                 : "bg-gray-100 text-gray-700"
             }`}
             onClick={() => handleFilterChange("youtube")}
@@ -73,7 +73,7 @@ export function Dashboard() {
           <button 
             className={`px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap ${
               contentFilter === "twitter" 
-                ? "bg-blue-100 text-blue-100" 
+                ? "bg-blue-100 text-blue-700" 
                 : "bg-gray-100 text-gray-700"
             }`}
             onClick={() => handleFilterChange("twitter")}
