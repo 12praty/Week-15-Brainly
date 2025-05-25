@@ -48,7 +48,6 @@ export function Sidebar({ onFilterChange, activeFilter = "all" }: SidebarProps) 
                 <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
               </div>
             } 
-            isActive={selectedFilter === "all"}
           />
         </div>
 
@@ -67,7 +66,6 @@ export function Sidebar({ onFilterChange, activeFilter = "all" }: SidebarProps) 
                 <YoutubeIcon />
               </div>
             } 
-            isActive={selectedFilter === "youtube"}
           />
         </div>
 
@@ -86,7 +84,6 @@ export function Sidebar({ onFilterChange, activeFilter = "all" }: SidebarProps) 
                 <TwitterIcon />
               </div>
             } 
-            isActive={selectedFilter === "twitter"}
           />
         </div>
       </div>
